@@ -2,14 +2,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 vector=[]
-df = pd.read_csv("Gold_Shutter483_dur90-002-alltracks.csv")
+df = pd.read_csv("2024-10-30-001-alltracks.csv")
 x = pd.DataFrame(df)
 diffco = x[[' DiffusionCo']]/100
 particleID = x[['ParticleID']]
 diffco.std()
-for i  in range(1, 2242):
-    for j in range(np.size(particleID)):
-        if i == particleID['ParticleID'][j]:
+i=0
+for i  in range(1, 5000):
+    for j in range(50000):
+       if i == particleID['ParticleID'][j]:
             candidate = j
             break
     vector.append(diffco[' DiffusionCo'][candidate])
